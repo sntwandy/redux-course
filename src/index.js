@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux'; // eslint-disable-line
+import { createStore, compose } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
 
 // Component
 import App from './containers/App';
@@ -9,6 +10,16 @@ import App from './containers/App';
 // Global /style
 import './assets/styles/Global.scss';
 
-const store = createStore(); // eslint-disable-line
+// Initial state
+const initialState = {
+  users: []
+}
 
-ReactDOM.render(<App />, document.querySelector('.App'));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, initialState, composeEnhancers());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('.App'));
