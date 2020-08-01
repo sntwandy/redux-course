@@ -4,17 +4,15 @@ import { Link } from 'react-router-dom';
 // Styles
 import '../assets/styles/components/Menu.scss'
 
-const Menu = props => {
+const Menu = () => {
   return(
-    <>
-      <header>
-        <nav id="menu">
-          <Link to='/'>Home</Link>
-          <Link to='/users'>Users</Link>
-        </nav>
-      </header>
-      { props.children }
-    </>
+    <header>
+      <nav id="menu">
+        <Link to='/'>Home</Link>
+        <Link to='users'>Users</Link>
+        <Link to='/tasks'>Tasks</Link>
+      </nav>
+    </header>
   );
 };
 
