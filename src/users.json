@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Megan E.",
+    "email": "megan@herrera.com",
+    "website": "meganherrera.com"
+  },
+  {
+    "id": 1,
+    "name": "Wandy R.",
+    "email": "wandy@santana.com",
+    "website": "wandysantana.com"
+  },
+  {
+    "id": 2,
+    "name": "Zeus A.",
+    "email": "zeus@amenadiel.com",
+    "website": "zeusamenadiel.com"
+  }
+]

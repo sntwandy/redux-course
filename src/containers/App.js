@@ -1,4 +1,8 @@
 import React from 'react';
+import users from '../users.json';
+
+// Components
+import TableUsers from '../components/TableUsers';
 
 // Styles
 import '../assets/styles/containers/App.scss';
@@ -15,16 +19,9 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Megan</td>
-            <td>hrramegan@gmail.com</td>
-            <td>meganherrera.com</td>
-          </tr>
-          <tr>
-            <td>Wandy</td>
-            <td>sntwandy@gmail.com</td>
-            <td>sntwandy.com</td>
-          </tr>
+          {
+            users.map( ({ id, name, email, website }) => <TableUsers key={id} name={name} email={email} website={website} />)
+          }
         </tbody>
       </table>
     </div>
