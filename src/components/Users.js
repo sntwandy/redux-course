@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getUsers } from '../actions';
 // import db_users from '../db_users.json';
 
 // Components
@@ -10,14 +10,10 @@ import TableUsers from '../components/TableUsers';
 import '../assets/styles/containers/App.scss';
 
 const Users = (props) => {
-  const [users, setUsers] = useState(props.users);
 
-  // Get data users and Set State
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(user => setUsers(user.data))
-      .catch(err => console.error(err));
-  });
+  useEffect( () => {
+    props.getUsers();
+  }, []);
 
   return(
     <div className="margin">
@@ -31,7 +27,7 @@ const Users = (props) => {
         </thead>
         <tbody>
           {
-            users.map( ({ id, name, email, website }) => <TableUsers key={id} name={name} email={email} website={website} />)
+            props.users.map( ({ id, name, email, website }) => <TableUsers key={id} name={name} email={email} website={website} />)
           }
         </tbody>
       </table>
@@ -45,4 +41,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(Users);
+const mapDispatchToProps = {
+  getUsers,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
