@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 // import db_users from '../db_users.json';
 
 // Components
@@ -8,8 +9,8 @@ import TableUsers from '../components/TableUsers';
 // Styles
 import '../assets/styles/containers/App.scss';
 
-const Users = () => {
-  const [users, setUsers] = useState([]);
+const Users = (props) => {
+  const [users, setUsers] = useState(props.users);
 
   // Get data users and Set State
   useEffect(() => {
@@ -38,4 +39,10 @@ const Users = () => {
   );
 };
 
-export default Users;
+const mapStateToProps = state => {
+  return {
+    users: state.users,
+  };
+};
+
+export default connect(mapStateToProps, null)(Users);

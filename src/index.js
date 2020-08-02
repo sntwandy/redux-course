@@ -12,7 +12,7 @@ import './assets/styles/Global.scss';
 
 // Initial state
 const initialState = {
-  users: []
+  "users": []
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
