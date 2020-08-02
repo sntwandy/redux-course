@@ -13,7 +13,9 @@ import './assets/styles/Global.scss';
 
 // Initial state
 const initialState = {
-  "users": []
+  "users": [],
+  "loading": false,
+  "error": ""
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

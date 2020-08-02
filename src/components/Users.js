@@ -27,6 +27,8 @@ const Users = (props) => {
         </thead>
         <tbody>
           {
+            (props.error) ? <h2>Error: {props.error}</h2> :
+            (props.loading) ? <h2>Loading..</h2> :
             props.users.map( ({ id, name, email, website }) => <TableUsers key={id} name={name} email={email} website={website} />)
           }
         </tbody>
@@ -38,6 +40,8 @@ const Users = (props) => {
 const mapStateToProps = state => {
   return {
     users: state.users,
+    loading: state.loading,
+    error: state.error,
   };
 };
 

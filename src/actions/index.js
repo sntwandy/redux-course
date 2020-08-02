@@ -5,10 +5,20 @@ export const setUsers = payload => ({
   payload,
 });
 
+export const setLoading = () => ({
+  type: 'LOADING',
+});
+
+export const setError = payload => ({
+  type: 'ERROR',
+  payload,
+});
+
 export const getUsers = () => {
   return (dispatch) => {
+    dispatch(setLoading());
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then(users => dispatch(setUsers(users.data)))
-      .catch(err => console.error(err));
+      .catch(err => dispatch(setError(err.message)));
   };
 };

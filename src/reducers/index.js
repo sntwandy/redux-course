@@ -3,7 +3,19 @@ const reducer = (state, action) => {
     case 'SET_USERS':
       return {
         ...state,
-        users: action.payload
+        users: action.payload,
+        loading: false,
+      }
+    case 'LOADING':
+      return {
+        ...state,
+        loading: true,
+      }
+    case 'ERROR':
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       }
     default:
       return state;
