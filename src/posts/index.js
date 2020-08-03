@@ -1,9 +1,36 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
+import { setError } from '../actions';
+
+// Components
+import PostUser from '../components/PostUser';
+import Error404 from '../components/Error404';
 
 const Posts = props => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    props.users.map(user => (user.id == props.match.params.id) && setUser(user))
+  }, []);
+
   return(
-    <h2>Posts Section: {props.match.params.id}</h2>
+    <>
+      {
+        (props.error.length === 0) ?  <PostUser key={user.id} name={user.name} /> :  <Error404 error={props.error} />
+      }
+    </>
   );
 };
 
-export default Posts;
+const mapStateToProps = state =>{
+  return {
+    users: state.users,
+    error: state.error,
+  }
+};
+
+const mapDispatchToProps = {
+  setError,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
