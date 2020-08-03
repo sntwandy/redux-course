@@ -20,21 +20,22 @@ const Users = (props) => {
 
   return(
     <>
-    {
-      (props.loading) ?
-        <div className="loading-container">
-          <Loading />
-        </div>
-        :
-                (props.error) ? <Error404 error={props.error} /> :
-                  <div className="margin">
-                    <TableContainer>
-                      {props.users.map( ({ id, name, email, website }) =>
-                      <TableUsers key={id} name={name} email={email} website={website} />)
-                      }
-                    </TableContainer>
-                </div>
-    }
+      {
+        (props.loading) ?
+          <div className="loading-container">
+            <Loading />
+          </div>
+          :
+            (props.error) ? <Error404 error={props.error} />
+              :
+              <div className="margin">
+                <TableContainer>
+                  {props.users.map( ({ id, name, email, website }) =>
+                    <TableUsers key={id} name={name} email={email} website={website} />)
+                  }
+                </TableContainer>
+              </div>
+      }
     </>
   );
 };
