@@ -4,10 +4,12 @@ import { getUsers } from '../actions';
 // import db_users from '../db_users.json';
 
 // Components
-import TableUsers from '../components/TableUsers';
+import TableUsers from './TableUsers';
+import TableContainer from './TableContainer'
+import Loading from './Loading';
 
 // Styles
-import '../assets/styles/containers/App.scss';
+import '../assets/styles/components/App.scss';
 
 const Users = (props) => {
 
@@ -16,24 +18,23 @@ const Users = (props) => {
   }, []);
 
   return(
-    <div className="margin">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Website</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            (props.error) ? <h2>Error: {props.error}</h2> :
-            (props.loading) ? <h2>Loading..</h2> :
-            props.users.map( ({ id, name, email, website }) => <TableUsers key={id} name={name} email={email} website={website} />)
-          }
-        </tbody>
-      </table>
-    </div>
+    <>
+    {
+      (props.loading) ?
+        <div className="loading-container">
+          <Loading />
+        </div>
+        :
+        <div className="margin">
+          <TableContainer>
+              {
+                (props.error) ? <h2>Error: {props.error}</h2> : props.users.map( ({ id, name, email, website }) =>
+                  <TableUsers key={id} name={name} email={email} website={website} />)
+              }
+          </TableContainer>
+        </div>
+    }
+    </>
   );
 };
 

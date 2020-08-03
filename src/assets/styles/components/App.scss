@@ -1,0 +1,20 @@
+.margin {
+  margin: 100px;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px 0px;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 50vh;
+}
