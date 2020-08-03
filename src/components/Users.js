@@ -7,6 +7,7 @@ import { getUsers } from '../actions';
 import TableUsers from './TableUsers';
 import TableContainer from './TableContainer'
 import Loading from './Loading';
+import Error404 from './Error404';
 
 // Styles
 import '../assets/styles/components/App.scss';
@@ -25,14 +26,14 @@ const Users = (props) => {
           <Loading />
         </div>
         :
-        <div className="margin">
-          <TableContainer>
-              {
-                (props.error) ? <h2>Error: {props.error}</h2> : props.users.map( ({ id, name, email, website }) =>
-                  <TableUsers key={id} name={name} email={email} website={website} />)
-              }
-          </TableContainer>
-        </div>
+                (props.error) ? <Error404 error={props.error} /> :
+                  <div className="margin">
+                    <TableContainer>
+                      {props.users.map( ({ id, name, email, website }) =>
+                      <TableUsers key={id} name={name} email={email} website={website} />)
+                      }
+                    </TableContainer>
+                </div>
     }
     </>
   );
