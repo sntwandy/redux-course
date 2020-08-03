@@ -17,7 +17,7 @@ export const setError = payload => ({
 export const getUsers = () => {
   return (dispatch) => {
     dispatch(setLoading());
-    axios.get('https://jsonplaceholder.typicode.com/userss')
+    axios.get('https://jsonplaceholder.typicode.com/users')
       .then(users => dispatch(setUsers(users.data)))
       .catch(err => dispatch(setError(err.message)));
   };

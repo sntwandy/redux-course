@@ -4,6 +4,7 @@ const TableContainer = props => {
   return(
     <table className="table">
       <thead>
+        <h2>Users:</h2>
         <tr>
           <th>Name</th>
           <th>Email</th>

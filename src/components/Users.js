@@ -30,8 +30,8 @@ const Users = (props) => {
               :
               <div className="margin">
                 <TableContainer>
-                  {props.users.map( ({ id, name, email, website }) =>
-                    <TableUsers key={id} name={name} email={email} website={website} />)
+                  {props.users.map( ({ id, name, email, website } ) =>
+                    <TableUsers key={id} id={id} name={name} email={email} website={website} />)
                   }
                 </TableContainer>
               </div>

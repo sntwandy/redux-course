@@ -6,6 +6,7 @@ import Layout from './Layout';
 import Home from './Home';
 import Users from '../components/Users';
 import Tasks from '../components/Tasks';
+import Posts from '../posts';
 
 const App = () => {
   return(
@@ -14,6 +15,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/users" component={Users} />
+          <Route exact path="/posts/:id" component={Posts} />
           <Route exact path="/tasks" component={Tasks} />
         </Switch>
       </Layout>
