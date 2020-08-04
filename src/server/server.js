@@ -53,7 +53,7 @@ const setResponse = (html, preloadedState, manifest) => {
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link href=${mainStyles} rel="stylesheet" type="text/css"></link>
-          <title>Platzi Video | App</title>
+          <title>Blog</title>
       </head>
       <body>
           <div id="app">${html}</div>
