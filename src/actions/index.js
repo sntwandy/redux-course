@@ -14,6 +14,11 @@ export const setError = payload => ({
   payload,
 });
 
+export const setPosts = payload => ({
+  type: 'SET_POSTS',
+  payload,
+});
+
 export const getUsers = () => {
   return (dispatch) => {
     dispatch(setLoading());
@@ -22,3 +27,11 @@ export const getUsers = () => {
       .catch(err => dispatch(setError(err.message)));
   };
 };
+
+export const getPosts = () => {
+  return (dispatch) => {
+    axios.get('http://jsonplaceholder.typicode.com/posts')
+      .then(posts => dispatch(setPosts(posts.data)))
+      .catch(err => dispatch(setError(err.message)));
+  }
+}

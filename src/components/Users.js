@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../actions';
+import { getUsers, getPosts } from '../actions';
 // import db_users from '../db_users.json';
 
 // Components
@@ -16,6 +16,7 @@ const Users = (props) => {
 
   useEffect( () => {
     props.getUsers();
+    props.getPosts();
   }, []);
 
   return(
@@ -50,6 +51,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   getUsers,
+  getPosts,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

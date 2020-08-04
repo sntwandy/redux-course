@@ -17,6 +17,12 @@ const reducer = (state, action) => {
         loading: false,
         error: action.payload,
       }
+    case 'SET_POSTS':
+      return {
+        ...state,
+        posts: action.payload,
+        loading: false,
+      }
     default:
       return state;
   };

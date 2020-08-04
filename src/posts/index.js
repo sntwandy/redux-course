@@ -17,7 +17,7 @@ const Posts = props => {
   return(
     <>
       {
-        (props.error.length === 0) ?  <PostUser key={user.id} name={user.name} /> :  <Error404 history={props.history} error={props.error} />
+        (props.error.length === 0) ?  <PostUser key={user.id} id={user.id} name={user.name} /> :  <Error404 history={props.history} error={props.error} />
       }
     </>
   );
@@ -26,6 +26,7 @@ const Posts = props => {
 const mapStateToProps = state =>{
   return {
     users: state.users,
+    posts: state.posts,
     error: state.error,
   }
 };

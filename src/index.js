@@ -14,6 +14,7 @@ import './assets/styles/Global.scss';
 // Initial state
 const initialState = {
   "users": [],
+  "posts": [],
   "loading": false,
   "error": ""
 }
