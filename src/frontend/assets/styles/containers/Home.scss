@@ -1,0 +1,15 @@
+.blogimg-container {
+  width: 90vw;
+  max-width: 1024px;
+}
+
+.blogimg-container img {
+  width: 100%;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+}
