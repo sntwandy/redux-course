@@ -10,13 +10,14 @@ const Posts = props => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    props.users.map(user => (user.id == props.match.params.id) && setUser(user))
-  }, []);
+    props.users.map(user => (user.id == props.match.params.id) && setUser(user));
+    (user.name === undefined) ? props.setError('User not found :(') : props.setError('');
+  });
 
   return(
     <>
       {
-        (props.error.length === 0) ?  <PostUser key={user.id} name={user.name} /> :  <Error404 error={props.error} />
+        (props.error.length === 0) ?  <PostUser key={user.id} name={user.name} /> :  <Error404 history={props.history} error={props.error} />
       }
     </>
   );
