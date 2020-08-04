@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Components
-import Layout from './Layout';
-import Home from './Home';
+import Layout from '../containers/Layout';
+import Home from '../containers/Home';
 import Users from '../components/Users';
 import Tasks from '../components/Tasks';
 import Posts from '../posts';
