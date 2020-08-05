@@ -19,7 +19,7 @@ const PostUser = (props) => {
       <h2>Posts: <span>{ props.name }</span></h2>
         {
           props.posts.map(post => (post.userId == props.id) &&
-            <Posts key={post.id} title={post.title} body={post.body} />
+            <Posts key={post.id} id={post.id} title={post.title} body={post.body} />
           )
         }
     </div>

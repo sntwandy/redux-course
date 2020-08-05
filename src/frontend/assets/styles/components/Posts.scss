@@ -24,6 +24,10 @@
   font-style: oblique;
 }
 
+.underComment {
+  z-index: 10;
+}
+
 @keyframes postAnim {
   from {
     transform: scale(0);
