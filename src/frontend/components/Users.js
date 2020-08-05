@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUsers, getPosts } from '../actions';
+import { getUsers, getPosts, getComments } from '../actions';
 // import db_users from '../db_users.json';
 
 // Components
 import TableUsers from './TableUsers';
-import TableContainer from './TableContainer'
+import TableContainer from '../containers/TableContainer';
 import Loading from './Loading';
 import Error404 from './Error404';
 
@@ -17,6 +17,7 @@ const Users = (props) => {
   useEffect( () => {
     (!props.users.length) && props.getUsers();
     (!props.posts.length) &&  props.getPosts();
+    (!props.comments.length) && props.getComments();
   }, []);
 
   return(
@@ -47,12 +48,14 @@ const mapStateToProps = state => {
     loading: state.loading,
     error: state.error,
     posts: state.posts,
+    comments: state.comments,
   };
 };
 
 const mapDispatchToProps = {
   getUsers,
   getPosts,
+  getComments,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

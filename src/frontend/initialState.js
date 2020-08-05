@@ -1,8 +1,9 @@
 const initialState = {
   "users": [],
   "posts": [],
+  "comments": [],
+  "error": "",
   "loading": false,
-  "error": ""
 };
 
 export default initialState;

@@ -19,6 +19,11 @@ export const setPosts = payload => ({
   payload,
 });
 
+export const setComments = payload => ({
+  type: 'SET_COMMENTS',
+  payload,
+});
+
 export const getUsers = () => {
   return (dispatch) => {
     dispatch(setLoading());
@@ -33,5 +38,12 @@ export const getPosts = () => {
     axios.get('http://jsonplaceholder.typicode.com/posts')
       .then(posts => dispatch(setPosts(posts.data)))
       .catch(err => dispatch(setError(err.message)));
-  }
-}
+  };
+};
+
+export const getComments = () => {
+  return (dispatch) => {
+    axios.get('https://jsonplaceholder.typicode.com/comments')
+      .then(comments => dispatch(setComments(comments.data)));
+  };
+};

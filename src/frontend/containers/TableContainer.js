@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import '../assets/styles/components/TableContainer.scss';
+import '../assets/styles/containers/TableContainer.scss';
 
 const TableContainer = props => {
   return(

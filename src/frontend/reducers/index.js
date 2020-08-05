@@ -23,6 +23,11 @@ const reducer = (state, action) => {
         posts: action.payload,
         loading: false,
       }
+    case 'SET_COMMENTS':
+      return{
+        ...state,
+        comments: action.payload,
+      }
     default:
       return state;
   };
