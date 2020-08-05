@@ -15,8 +15,8 @@ import '../assets/styles/components/App.scss';
 const Users = (props) => {
 
   useEffect( () => {
-    props.getUsers();
-    props.getPosts();
+    (!props.users.length) && props.getUsers();
+    (!props.posts.length) &&  props.getPosts();
   }, []);
 
   return(
@@ -46,6 +46,7 @@ const mapStateToProps = state => {
     users: state.users,
     loading: state.loading,
     error: state.error,
+    posts: state.posts,
   };
 };
 

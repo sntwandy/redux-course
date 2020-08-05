@@ -1,6 +1,6 @@
 import Home from '../containers/Home';
 import Users from '../components/Users';
-import Posts from '../components/Posts';
+import Posts from '../posts/index';
 import Tasks from '../components/Tasks';
 
 const routes =[

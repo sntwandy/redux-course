@@ -11,8 +11,8 @@ const Posts = props => {
 
   useEffect(() => {
     props.users.map(user => (user.id == props.match.params.id) && setUser(user));
-    (user.name === undefined) ? props.setError('User not found :(') : props.setError('');
-  });
+    // (user.name === undefined) ? props.setError('User not found :(') : props.setError('');
+  },[]);
 
   return(
     <>

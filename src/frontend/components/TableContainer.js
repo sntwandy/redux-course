@@ -1,10 +1,13 @@
 import React from 'react';
 
+// Styles
+import '../assets/styles/components/TableContainer.scss';
+
 const TableContainer = props => {
   return(
     <>
       <h2>Users:</h2>
-      <table className="table">
+      <table className="table table-container">
         <thead>
           <tr>
             <th>Name</th>
