@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Layout from '../containers/Layout';
 import Home from '../containers/Home';
 import Users from '../components/Users';
-import Tasks from '../components/Tasks';
+import Tasks from '../containers/TasksContainer';
 import Posts from '../posts';
 
 const App = () => {

@@ -28,6 +28,11 @@ const reducer = (state, action) => {
         ...state,
         comments: action.payload,
       }
+    case 'SET_TASKS':
+      return {
+        ...state,
+        tasks: action.payload,
+      }
     default:
       return state;
   };

@@ -24,6 +24,11 @@ export const setComments = payload => ({
   payload,
 });
 
+export const setTasks = payload => ({
+  type: 'SET_TASKS',
+  payload,
+});
+
 export const getUsers = () => {
   return (dispatch) => {
     dispatch(setLoading());
@@ -47,3 +52,11 @@ export const getComments = () => {
       .then(comments => dispatch(setComments(comments.data)));
   };
 };
+
+export const getTasks = () => {
+  return (dispatch) => {
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(tasks => dispatch(setTasks(tasks.data)))
+      .catch(err => dispatch(setError(err.message)));
+  }
+}

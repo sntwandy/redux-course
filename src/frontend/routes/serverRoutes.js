@@ -1,7 +1,7 @@
 import Home from '../containers/Home';
 import Users from '../components/Users';
 import Posts from '../posts/index';
-import Tasks from '../components/Tasks';
+import Tasks from '../containers/TasksContainer';
 
 const routes =[
   {
