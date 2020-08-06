@@ -32,6 +32,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         tasks: action.payload,
+        loading: false,
       }
     default:
       return state;

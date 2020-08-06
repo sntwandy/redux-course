@@ -55,6 +55,7 @@ export const getComments = () => {
 
 export const getTasks = () => {
   return (dispatch) => {
+    dispatch(setLoading());
     axios.get('https://jsonplaceholder.typicode.com/todos')
       .then(tasks => dispatch(setTasks(tasks.data)))
       .catch(err => dispatch(setError(err.message)));

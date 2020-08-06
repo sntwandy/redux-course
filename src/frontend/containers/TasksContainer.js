@@ -2,20 +2,33 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getTasks } from '../actions';
 
+// Components
+import Loading from '../components/Loading';
+
 const Tasks = (props) => {
 
   useEffect( () => {
-    (!props.tasks.length) && props.getTasks();
+    (!props.tasks.length) && props.getTasks()
   }, []);
 
   return(
-    <h2>Tasks</h2>
+    <div>
+    {
+      (props.loading) ?
+        <div className="loading-container">
+          <Loading />
+        </div>
+        :
+        <h2>Tasks</h2>
+    }
+    </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
     tasks: state.tasks,
+    loading: state.loading,
   };
 };
 
