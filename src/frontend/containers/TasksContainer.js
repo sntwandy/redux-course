@@ -5,7 +5,7 @@ import { getTasks } from '../actions';
 const Tasks = (props) => {
 
   useEffect( () => {
-    props.getTasks();
+    (!props.tasks.length) && props.getTasks();
   }, []);
 
   return(
