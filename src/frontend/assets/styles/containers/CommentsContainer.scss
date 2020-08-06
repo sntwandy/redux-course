@@ -3,4 +3,16 @@
   width: 95%;
   background-color: #1f313c;
   color: white;
+  animation-name: commentsAnim;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes commentsAnim {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
